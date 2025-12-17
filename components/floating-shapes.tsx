@@ -1,61 +1,60 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+
+type Shape = {
+  x: number
+  y: number
+  rotate: number
+  duration: number
+  delay: number
+}
 
 export default function FloatingShapes() {
+  const [shapes, setShapes] = useState<Shape[]>([])
+
+  useEffect(() => {
+    const w = window.innerWidth
+    const h = window.innerHeight
+
+    setShapes(
+      Array.from({ length: 14 }).map(() => ({
+        x: Math.random() * w,
+        y: h + 50,
+        rotate: Math.random() * 360,
+        duration: 4 + Math.random() * 3,
+        delay: Math.random() * 5,
+      }))
+    )
+  }, [])
+
+  if (shapes.length === 0) return null
+
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {/* Floating hearts */}
-      {[...Array(8)].map((_, i) => (
+      {shapes.map((s, i) => (
         <motion.div
-          key={`heart-${i}`}
+          key={i}
           className="absolute text-4xl"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: window.innerHeight + 50,
+            x: s.x,
+            y: s.y,
             opacity: 0,
           }}
           animate={{
             y: -100,
             opacity: [0, 1, 1, 0],
-            rotate: Math.random() * 360,
+            rotate: s.rotate,
           }}
           transition={{
-            duration: 4 + Math.random() * 3,
-            repeat: Number.POSITIVE_INFINITY,
-            delay: Math.random() * 5,
+            duration: s.duration,
+            repeat: Infinity,
+            delay: s.delay,
             ease: "easeInOut",
           }}
         >
-          {"💖".charAt(Math.floor(Math.random() * 1))}
-        </motion.div>
-      ))}
-
-      {/* Floating sparkles */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={`sparkle-${i}`}
-          className="absolute text-3xl"
-          initial={{
-            x: Math.random() * window.innerWidth,
-            y: window.innerHeight + 50,
-            opacity: 0,
-            scale: 0.5,
-          }}
-          animate={{
-            y: -100,
-            opacity: [0, 1, 1, 0],
-            scale: [0.5, 1, 1, 0.5],
-            rotate: Math.random() * 360,
-          }}
-          transition={{
-            duration: 5 + Math.random() * 2,
-            repeat: Number.POSITIVE_INFINITY,
-            delay: Math.random() * 6,
-            ease: "easeInOut",
-          }}
-        >
-          ✨
+          {i % 2 === 0 ? "💖" : "✨"}
         </motion.div>
       ))}
     </div>
