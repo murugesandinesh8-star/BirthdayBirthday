@@ -24,7 +24,7 @@ export default function FloatingShapes() {
         y: h + 50,
         rotate: Math.random() * 360,
         duration: 4 + Math.random() * 3,
-        delay: Math.random() * 5,
+        delay: Math.random() * 10,
       }))
     )
   }, [])

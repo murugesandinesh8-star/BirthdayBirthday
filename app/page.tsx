@@ -6,7 +6,6 @@ import MessageCards from "@/components/message-cards"
 import SecretCard from "@/components/secret-card"
 import FloatingShapes from "@/components/floating-shapes"
 import HeartCursor from "@/components/heart-cursor"
-import MusicPlayer from "@/components/music-player"
 import Footer from "@/components/footer"
 import Confetti from "@/components/confetti"
 
@@ -30,7 +29,6 @@ export default function Home() {
       <HeartCursor />
       {showConfetti && <Confetti />}
       <FloatingShapes />
-      <MusicPlayer />
       <Hero />
       <MessageCards />
       <SecretCard />
