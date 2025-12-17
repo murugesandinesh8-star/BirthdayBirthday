@@ -1,0 +1,246 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Pink birthday aesthetic theme colors */
+  --background: #f8ddeb;
+  --foreground: #3d2a2a;
+  --card: #ffffff;
+  --card-foreground: #3d2a2a;
+  --popover: #ffffff;
+  --popover-foreground: #3d2a2a;
+  --primary: #f4a7c8;
+  --primary-foreground: #ffffff;
+  --secondary: #f8e8f0;
+  --secondary-foreground: #3d2a2a;
+  --muted: #f0c8e0;
+  --muted-foreground: #7d5a6a;
+  --accent: #ffc0d9;
+  --accent-foreground: #3d2a2a;
+  --destructive: #d97f8c;
+  --destructive-foreground: #ffffff;
+  --border: #f0c8e0;
+  --input: #f8e8f0;
+  --ring: #f4a7c8;
+  --chart-1: #f4a7c8;
+  --chart-2: #ffc0d9;
+  --chart-3: #f0c8e0;
+  --chart-4: #e8a8c8;
+  --chart-5: #f8c8e0;
+  --radius: 1rem;
+  --sidebar: #f8ddeb;
+  --sidebar-foreground: #3d2a2a;
+  --sidebar-primary: #f4a7c8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ffc0d9;
+  --sidebar-accent-foreground: #3d2a2a;
+  --sidebar-border: #f0c8e0;
+  --sidebar-ring: #f4a7c8;
+}
+
+.dark {
+  --background: #2a1a1a;
+  --foreground: #f8e8f0;
+  --card: #3d2a2a;
+  --card-foreground: #f8e8f0;
+  --popover: #3d2a2a;
+  --popover-foreground: #f8e8f0;
+  --primary: #f4a7c8;
+  --primary-foreground: #2a1a1a;
+  --secondary: #4a3540;
+  --secondary-foreground: #f8e8f0;
+  --muted: #5a4550;
+  --muted-foreground: #c8a8b8;
+  --accent: #ffc0d9;
+  --accent-foreground: #2a1a1a;
+  --destructive: #ff8a9b;
+  --destructive-foreground: #2a1a1a;
+  --border: #4a3540;
+  --input: #4a3540;
+  --ring: #f4a7c8;
+  --chart-1: #f4a7c8;
+  --chart-2: #ffc0d9;
+  --chart-3: #e8a8c8;
+  --chart-4: #f0c8e0;
+  --chart-5: #f8c8e0;
+  --sidebar: #2a1a1a;
+  --sidebar-foreground: #f8e8f0;
+  --sidebar-primary: #f4a7c8;
+  --sidebar-primary-foreground: #2a1a1a;
+  --sidebar-accent: #ffc0d9;
+  --sidebar-accent-foreground: #f8e8f0;
+  --sidebar-border: #4a3540;
+  --sidebar-ring: #f4a7c8;
+}
+
+@theme inline {
+  --font-sans: "Poppins", sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Add custom animations for birthday website */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tilt {
+  0%,
+  100% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    transform: rotateY(10deg) rotateX(-5deg);
+  }
+}
+
+@keyframes heartFloat {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(100px) scale(1);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+/* Add smooth scroll behavior for modal content */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-tilt {
+  animation: tilt 3s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
